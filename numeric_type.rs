@@ -1,9 +1,10 @@
 use std::{i8,i16,i32,i64,isize,u8,u16,u32,u64,
     usize,f32,f64};
 fn main() {
-    //numeric type
-    println!("max i8 {}",i8::MAX);
-    println!("min i8 {}",i8::MIN);
+    // There are many numeric types i8, i16, i32, i64, isize,
+    // u8, u16, u32, u64, usize, f32, f64 
+    println!("Max i8 {}",i8::MAX);
+    println!("Min i8 {}",i8::MIN);
     println!("MAX i16 {}",i16::MAX);
     println!("MIN i16 {}",i16::MIN);
     println!("MAX i32 {}",i32::MAX);
