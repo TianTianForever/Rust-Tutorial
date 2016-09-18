@@ -8,6 +8,6 @@ fn main() {
         println!("x is seven");
     }
     let x = 6;
-    let y = if x == 6{ 10 }else{15};
+    let y = if x == 6{10}else{15};
     println!("y is {}",y);
 }
