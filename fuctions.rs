@@ -1,8 +1,8 @@
 fn main() {
     println!("learning fuction syntax");
-    print_number(5);
-    say_hello();
-    sum(9,5);
+    print_number(5);  //print "x is: 5"
+    say_hello();      //print "hello world"
+    sum(9,5);         //print "sum is: 14"
     println!("{}", add_one(9));  //print "10"
     diverges();
 }
