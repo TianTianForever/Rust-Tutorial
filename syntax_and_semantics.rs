@@ -19,9 +19,20 @@ fn main() {
     let mut e = 10; //mut x: i32
     e = 11 ;
     println!("{:?}", e);
-    
+
     //initializing bngdings
     //Error,rust warns us that we never use the variable binding.
     //let cf: i32;
     //println!("{:?}",cf );
+
+    //Vrariable bindings can be shadowed.
+    let sd: i32 = 42;
+    {
+        println!("{}",sd); //print "42"
+        let sd = 22;
+        println!("{}",sd);  //print "22"
+    }
+    println!("{}",sd); //print "42"
+    let sd = 12;
+    println!("{}",sd); //print "12"
 }
