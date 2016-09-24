@@ -10,7 +10,7 @@ fn main() {
 
     //type annotations
     let c: i32 = 5;
-    println!("{:?}",c);
+    println!("{}",c);  //print "5"
 
     //immutable
     let d = 33;
@@ -18,7 +18,7 @@ fn main() {
     //mutable
     let mut e = 10; //mut x: i32
     e = 11 ;
-    println!("{:?}", e);
+    println!("{}", e);  //print "11"
 
     //initializing bngdings
     //Error,rust warns us that we never use the variable binding.
