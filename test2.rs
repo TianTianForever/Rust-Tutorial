@@ -1,3 +1,4 @@
+use std::cell::Cell;
 //struct type
 struct Point {
     x: i32,
@@ -21,7 +22,29 @@ fn main() {
     let length = Inches(10);
     let Inches(integer_length) = length;
 
-    //unit-like stucts
+    //unit-like structs
     struct EmptyStruct;
     let empty = EmptyStruct;
+
+#[derive(Default)]
+    struct Point3d {
+        x: i32,
+        y: i32,
+        z: i32,
+    }
+    let origin = Point3d::default();
+    let point = Point3d {y: 1, ..origin };
+    let Point3d {x: x0, y: y0, ..} = point;
+
+    struct Point1 {
+        x: i32,
+       // mut y: i32 //Error
+    }
+    
+    struct Point3 {
+        x: i32,
+        y: Cell<i32>,
+    }
+    let mut point = Point3 {x: 1, y: Cell::new(1)};
+    point.y.set(5);
 }
