@@ -44,4 +44,24 @@ fn main() {
        OptionalInt::Value(..) => println!("Got an int"),
        OptionalInt::Message => println!("No such luck"),
    }
+   
+   let number = Some(7);
+   let mut optional = Some(0);
+   // If 'let' destructures 'number' into 'Some(i)', evaluate the block.
+   if let Some(i) = number {
+       println!("Matched {:?}", i);
+   } else {
+       println!("Didn't match a number");
+   }
+
+   //While 'let' destructure 'number' into 'Some(i)', evaluate the block.
+   while let Some(i) = optional {
+       if i > 9 {
+           println!("Geater than 9, quit!");
+           optional = None;
+       } else {
+           println!("'i' is {:?}. try again.",i);
+           Some(i + 1);
+       }
+   }
 }
