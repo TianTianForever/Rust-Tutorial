@@ -23,16 +23,16 @@ fn main() {
         println!("{:?}",long_tuple.1);
     //    ...
     
-   let pair = (1, true);
-   println!("pair is {:?}", pair);
-   println!("the reversed is {:?}", reverse(pair));
+    let pair = (1, true);
+    println!("pair is {:?}", pair);
+    println!("the reversed is {:?}", reverse(pair));
   
-   //Both 'Debug' and "Display" were implemented .
-   let matrix = Matrix(1.1, 1.2, 1.3);
-   println!("{:?}",matrix);
-   println!("{}", matrix);    
+    //Both 'Debug' and "Display" were implemented .
+    let matrix = Matrix(1.1, 1.2, 1.3);
+    println!("{:?}",matrix);
+    println!("{}", matrix);    
  
-   // Tuples can be tuple members
-   let tuple_of_tuples = ((11u8, 111u16, 1111u32), (22u32, 222u64), -222i32);
-   println!("{:?}", tuple_of_tuples);
+    // Tuples can be tuple members
+    let tuple_of_tuples = ((11u8, 111u16, 1111u32), (22u32, 222u64), -222i32);
+    println!("{:?}", tuple_of_tuples);
 }
