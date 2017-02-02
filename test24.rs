@@ -1,19 +1,26 @@
-// Globals are declared outside all other scopes.
-static LANGUAGE: &'static str = "rust";
-const NUMBER: i32 = 11;
-
-fn is_big(n: i32) -> bool {
-    // Access constant in some function.
-    n > NUMBER
-}
-
 fn main() {
-    let n = 16;
-    // Access constant in the main thread.
-    println!("This is {}",LANGUAGE);
-    println!("the number is {}",NUMBER);
-    println!("{} is {}",n, if is_big(n) { "big" } else { "small" });
+    // This binding lives in the main function.
+    let long_lived_binding = 1;
     
-    //NUMBER = 5; // Error! Cannot modify a 'const'.
-   
+    // This is block, and has a smaller scope than the main function.
+    {
+        // This binding only exists in this block.
+        let short_lived_binding = 2;
+        println!(" inner short: {}", short_lived_binding);
+        
+        // This binding 'shadows' the outer one.       
+        let long_lived_binding = 5f32;
+        println!("inner long: {}", long_lived_binding);
+    }
+    // End of the block.
+
+    // Error! 'short_lived_binding' doesn't exists in this scope.
+    //println!("Outer short: {}",short_lived_binding);   
+
+    println!("Outer long: {}", long_lived_binding);
+    
+    // This binding also 'shadow' the previous binding.
+    let long_lived_binding = 8u8;
+    println!("Outer long: {}", long_lived_binding);
 }
+
