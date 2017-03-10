@@ -1,4 +1,4 @@
-fn divisible(a: u32, b: u32) -> bool {
+fn divisible(a: u32, b: u32) -> bool { 
     if a == 0 {
         return false;
     }
@@ -74,6 +74,39 @@ impl Rectangle {
         self.p2.y += y;
     }
 }
+
+// 'Pair' owns resources: two heap allocated integers.
+struct Pair(Box<i32>, Box<i32>);
+impl Pair {
+    // This method 'consumes' the resources of the caller object
+    // 'self' desugars to 'self: Self'
+    fn destroy(self) {
+        // Destructure 'self'
+        let Pair(first, second) = self;
+        println!("Destroying pair({}, {})",first, second);
+        // 'first' and 'second' go out of scope and get freed.
+    }
+}
+
 fn main() {
     repeatedly(100);
-}
+ 
+    let rectangle = Rectangle {
+        // Static methods are called using double colons;
+        p1: Point::origin(),
+        p2: Point::new(1.0, 2.0),
+    };
+    // Instance methods are called using the dot operator
+    // Note that the first argument '&self' is implicitly passed, i.e.
+    // 'rectangle.perimeter()' == 'rectangle.perimeter(&rectangle)'
+    println!("rectangle area is: {}", rectangle.area());
+    println!("rectangle perimeter: {}", rectangle.perimeter());
+
+    let mut square = Rectangle {
+        p1: Point::origin(),
+        p2: Point::new(1.0, 1.0),
+    };
+    square.translate(1.0, 1.0);
+    let pair = Pair(Box::new(1), Box::new(2));
+    pair.destroy();
+} 
