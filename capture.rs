@@ -36,4 +36,6 @@ fn main() {
        mem::drop(movable);
    };
    consume();
+   //consume();
+   // ^ TODO: Try uncommenting this line. 
 }
