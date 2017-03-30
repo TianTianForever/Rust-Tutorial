@@ -3,3 +3,4 @@
 pub fn function() {
     println!("my_module::information::function()");
 }
+
