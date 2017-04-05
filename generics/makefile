@@ -1,8 +1,8 @@
 OBJS = generics functions test test2 implementations \
-       impl1 impl2
+       impl1 impl2 traits traits_test1
 
 all: generics function test test2 implementations \
-     impl1 impl2
+     impl1 impl2 traits traits_test1
 
 generics: generics.rs
 	rustc generics.rs && ./generics
@@ -24,5 +24,12 @@ impl1: impl1.rs
 
 impl2: impl2.rs
 	rustc impl2.rs && ./impl2
+
+traits: traits.rs
+	rustc traits.rs && ./traits
+
+traits_test1: traits_test1.rs
+	rustc traits_test1.rs && ./traits_test1
+
 clean:
 	rm -rf $(OBJS)
