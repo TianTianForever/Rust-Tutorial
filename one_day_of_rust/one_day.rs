@@ -89,10 +89,10 @@ fn main() {
    
     generic_specify_d(DefineTypeGen(DefineType(A)));
     
-    //gen_spec_i32(&_i32);
-    //gen_spec_f64(&_float);
-    //gen_spec_char(&_char);
-    //gen_spec_string(&_string);
+    //gen_spec_i32(_i32);
+    //gen_spec_f64(_float);
+    //gen_spec_char(_char);
+    //gen_spec_string(_string);
 
     generic(_i32);
     generic(_float);
