@@ -13,6 +13,7 @@ pub fn largest<T: PartialOrd + Copy>(list: &[T]) -> T {
     largest
 }
 
+// Define a function 'smallest'.
 pub fn smallest<T: PartialOrd + Copy>(list: &[T]) -> T {
     let mut smallest = list[0];
     for &item in list.iter() {
