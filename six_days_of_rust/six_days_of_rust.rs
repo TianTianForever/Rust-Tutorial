@@ -29,10 +29,12 @@ fn main() {
     println!("The Point of x: {}",point.take_x());
     
     let mut s = String::from("Calculate string length on the heap.");
+
     { 
         let len = beautiful_gril::calculate_length(&s);
         println!("The length of '{}' is {}",s, len);
     }
+
     let change_str = beautiful_gril::change(&mut s);
     println!(
         "the length of '{:?}' is {:?}",

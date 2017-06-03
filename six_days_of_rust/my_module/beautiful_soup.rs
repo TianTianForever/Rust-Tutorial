@@ -22,6 +22,7 @@ pub trait Contains {
    fn first(&self) -> i32;
    fn last(&self) -> i32;
 }
+
 //trait Contains<A, B> {
 //    fn contains(&self, &A, &B) -> bool;
 //    fn first(&self) -> i32;
