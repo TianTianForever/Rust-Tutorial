@@ -1,0 +1,15 @@
+sudo: required
+language: rust
+rust:
+  - stable
+  - beta
+  - nightly
+cache: cargo
+os:
+  - linux
+script:
+  - cargo build --verbose --all
+  - cargo test --verbose --all
+matrix:
+  allow_failures:
+    - rust: nightly
