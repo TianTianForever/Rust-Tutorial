@@ -1,0 +1,6 @@
+[package]
+name = "z105"
+version = "0.1.0"
+authors = ["matrixlin <tiantiansirius@gmail.com>"]
+
+[dependencies]
