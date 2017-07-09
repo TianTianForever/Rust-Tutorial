@@ -4,7 +4,7 @@ fn z105_z106() {
     println!("{:?}", variable);
     let mut z: f32 = 62.75; // z105 into stone of top level.
     // z105 - z106 = 41.5
-    for i in 2..42 {
+    for i in 0..43 {
         println!("from z105 to z106: {:?}M: {:?}", i, z);
         z -= variable;
     }
@@ -55,8 +55,8 @@ fn z109_z110() {
 fn main() {
 
     z105_z106();
-    z106_z107();
-    z107_z108();
-    z108_z109();
-    z109_z110();
+    //z106_z107();
+    //z107_z108();
+    //z108_z109();
+    //z109_z110();
 }
