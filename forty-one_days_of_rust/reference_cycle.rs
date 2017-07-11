@@ -30,6 +30,7 @@ fn main() {
     });
     // Try to get a reference to the parent of leaf by using the 'upgrade' method.
     println!("leaf parent = {:?}", leaf.parent.borrow().upgrade());
+
     let branch = Rc::new( Node {
         value: 11,
         parent: RefCell::new(Weak::new()),
