@@ -1,4 +1,4 @@
-ARCH? = x86_64
+ARCH? = x86_64 linux
 
 OBJECTS = forty-one_days_of_rust reference_cycle
 

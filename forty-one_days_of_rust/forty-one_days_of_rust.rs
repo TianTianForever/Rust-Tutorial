@@ -32,12 +32,10 @@ impl<T: Mul<Output=T>> Mul for Point<T> {
 }
 
 fn main() {
-    let leaf = Rc::new(
-        Node {
-            value: 5,
-            children: RefCell::new(vec![]),
-        }
-    );
+    let leaf = Rc::new( Node {
+        value: 5,
+        children: RefCell::new(vec![]),
+    });
 
     let branch = Rc::new(
         Node {
