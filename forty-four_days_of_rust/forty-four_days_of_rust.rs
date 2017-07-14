@@ -45,6 +45,7 @@ fn multi_producers() {
         }
 */
     });
+
         for receiver in rx {
             println!("{:?}", receiver);
         }

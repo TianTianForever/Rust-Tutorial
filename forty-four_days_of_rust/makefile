@@ -1,6 +1,7 @@
 ARCH? = x86_64 linux
 
 OBJS = forty-four_days_of_rust shared_state_concurrency
+
 C = rustc
 
 .PHONY: clean

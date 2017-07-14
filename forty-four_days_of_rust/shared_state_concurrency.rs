@@ -18,7 +18,6 @@ fn thread1_add_thread2(x: i32, y: i32) {
 
     let x = receiver.recv().unwrap();
     let y = receiver.recv().unwrap();
-
     let z = x + y;
     println!("{:?}", z);
 }
