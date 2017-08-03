@@ -1,0 +1,10 @@
+[package]
+name = "fifty_days_of_rust"
+version = "0.1.0"
+authors = ["TianTianForever <2890339972@qq.com>"]
+
+[dependencies]
+mio = "0.6"
+futures = "0.1"
+futures-cpupool = "0.1"
+tokio-timer = "0.1"
