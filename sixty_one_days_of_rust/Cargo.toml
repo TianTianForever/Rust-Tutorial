@@ -1,0 +1,6 @@
+[package]
+name = "sixty_one_days_of_rust"
+version = "0.1.0"
+authors = ["TianTianForever <2890339972@qq.com>"]
+
+[dependencies]
