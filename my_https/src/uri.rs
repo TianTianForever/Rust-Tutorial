@@ -1,5 +1,5 @@
 //!  URI component of request and response lines
-
+use byte_str::ByteStr;
 use std::{fmt, u8, u16};
 use std::ascii::AsciiExt;
 use std::hash::{Hash, Hasher};
