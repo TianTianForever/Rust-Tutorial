@@ -25,16 +25,19 @@ pub struct Uri {
 pub struct Scheme {
      inner: Scheme2,
 }
+
 #[derive(Copy, Clone, Debug)]
 pub enum Scheme2 {
     None,
     Standard(Protocol),
 }
+
 #[derive(Copy, Clone, Debug)]
 pub enum Protocol {
     Http,
     Https,
 }
+
 /// Represents the Authority component of a URI.
 #[derive(Copy, Clone, Debug)]
 pub struct Authority {
