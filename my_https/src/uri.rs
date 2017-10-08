@@ -1,11 +1,12 @@
 //!  URI component of request and response lines
 use byte_str::ByteStr;
+use bytes::Bytes;
 use std::{fmt, u8, u16};
 use std::ascii::AsciiExt;
 use std::hash::{Hash, Hasher};
 use std::error::Error;
 use std::str::{self, FromStr};
-use std::error;
+
 ///  The URI is structured as follows:
 /// 
 /// abc://username:password@example.com:123/path/data?key=value&key1=value1#fragid1
@@ -154,3 +155,43 @@ const SCHEME_CHARS: [u8; 256] = [
         0,     0,     0,     0,     0,     0                              // 25x
 ];
 
+// implement Uri.
+impl Uri {
+    /// Attemp to convert a "Uri" from "Parts".
+    pub fn from_parts(src: Parts) -> Result<Uri, IvalidUriParts> {
+        if src.scheme.is_some() {
+            if src.authority.is_none() {
+                return Err(ErrorKind::AuthorityMissing.into());
+            }
+
+            if src.path_and_query.is_none() {
+                return Err(ErrorKind::PathAndQueryMissing.into());
+            }
+        } else {
+            if src.authority.is_some() && src.path_and_query.is_none() {
+                return Err(ErrorKind::PathAndQueryMissing.into());
+            }
+        }
+    }
+
+    let scheme = match src.scheme {
+        Some(scheme) => scheme,
+        None => Scheme { inner: Scheme2::None },
+    };
+
+    let authority = match src.authority {
+        Some(authority) => authority,
+        None => Authority::empty(),
+    };
+
+    let path_and_query = match src.path_and_query {
+        Some(path_and_query) => path_and_query,
+        None => PathAndQuery::empty(),
+    };
+
+    Ok(Uri {
+        scheme: scheme,
+        authority: authority,
+        path_and_query: path_and_query,
+    })
+}
