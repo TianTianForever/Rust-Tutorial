@@ -172,26 +172,54 @@ impl Uri {
                 return Err(ErrorKind::PathAndQueryMissing.into());
             }
         }
+
+        let scheme = match src.scheme {
+            Some(scheme) => scheme,
+            None => Scheme { inner: Scheme2::None },
+        };
+
+        let authority = match src.authority {
+            Some(authority) => authority,
+            None => Authority::empty(),
+        };
+
+        let path_and_query = match src.path_and_query {
+            Some(path_and_query) => path_and_query,
+            None => PathAndQuery::empty(),
+        };
+
+        Ok(Uri {
+            scheme: scheme,
+            authority: authority,
+            path_and_query: path_and_query,
+        })
     }
+}
 
-    let scheme = match src.scheme {
-        Some(scheme) => scheme,
-        None => Scheme { inner: Scheme2::None },
-    };
+impl From<Uri> for Parts {
+    fn from(src: Uri) -> Self {
+        let scheme = match src.scheme.inner {
+            Scheme2::None => None,
+            _ => Some(src.scheme),
+        };
 
-    let authority = match src.authority {
-        Some(authority) => authority,
-        None => Authority::empty(),
-    };
+        let authority = if src.authority.data.is_empty() {
+            None
+        } else {
+            Some(src.authority)
+        };
+        
+        // I need to modify it in the future.
+        let path_and_query = if src.path_and_query.data.is_empty() {
+            None
+        } else {
+            Some(src.path_and_query)
+        };
 
-    let path_and_query = match src.path_and_query {
-        Some(path_and_query) => path_and_query,
-        None => PathAndQuery::empty(),
-    };
-
-    Ok(Uri {
-        scheme: scheme,
-        authority: authority,
-        path_and_query: path_and_query,
-    })
+        Parts {
+            scheme: scheme,
+            authority: authority,
+            path_and_query: path_and_query,
+        }
+    }
 }
